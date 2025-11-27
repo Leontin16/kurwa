@@ -10,7 +10,6 @@ int main() {
     std::cout << "=== АЛГОРИТМ ДЕЙКСТРЫ ===" << std::endl;
 
     try {
-        // Чтение входных данных из файла
         std::ifstream inputFile("input.txt");
         if (!inputFile.is_open()) {
             std::cout << "Ошибка: не удалось открыть файл input.txt" << std::endl;
@@ -28,27 +27,10 @@ int main() {
 
         Graph graph(n);
 
-        // Чтение рёбер
-        /*for (int i = 0; i < m; i++) {
-            int u, v, w;
-            inputFile >> u >> v >> w;
-
-            if (u < 0 || u >= n || v < 0 || v >= n || w < 0) {
-                std::cout << "Ошибка: неверные данные ребра! Пропускаем..." << std::endl;
-                continue;
-            }
-
-            graph.addEdge(u, v, w);
-            std::cout << "Добавлено ребро: " << u << " -> " << v << " (вес: " << w << ")" << std::endl;
-        
-        }*/
-
-        // Чтение рёбер
         for (int i = 0; i < m; i++) {
             int u, v, w;
             inputFile >> u >> v >> w;
 
-            // Преобразование 1-based → 0-based
             u = u - 1;
             v = v - 1;
 
@@ -61,7 +43,6 @@ int main() {
             std::cout << "Добавлено ребро: " << u + 1 << " -> " << v + 1 << " (вес: " << w << ")" << std::endl;
         }
 
-        // Чтение начальной вершины
         inputFile >> source;
         source = source - 1;
         inputFile.close();
@@ -72,18 +53,15 @@ int main() {
 
         std::cout << "\nЗапуск алгоритма Дейкстры из вершины " << source << "..." << std::endl;
 
-        // Выполнение алгоритма Дейкстры
         Vector<int> distances = Dijkstra::findShortestPaths(graph, source);
 
-        // Запись результатов в файлы
         std::ofstream outputFile1("output_detailed.txt");
         std::ofstream outputFile2("output_simple.txt");
 
-        // Подробный вывод
         outputFile1 << "=== ПОДРОБНЫЕ РЕЗУЛЬТАТЫ ===" << std::endl;
         outputFile1 << "Кратчайшие расстояния от вершины " << source << ":" << std::endl;
         for (int i = 0; i < n; i++) {
-            outputFile1 << "Вершина " << i << ": ";
+            outputFile1 << "Вершина " << i + 1 << ": ";
             if (distances[i] == INT_MAX) {
                 outputFile1 << "недостижима (INF)";
             }
@@ -93,7 +71,6 @@ int main() {
             outputFile1 << std::endl;
         }
 
-        // Простой вывод
         outputFile2 << "=== ПРОСТОЙ ФОРМАТ ===" << std::endl;
         for (int i = 0; i < n; i++) {
             outputFile2 << i+1 << ":" << (distances[i] == INT_MAX ? "INF" : std::to_string(distances[i])) << std::endl;
@@ -102,7 +79,6 @@ int main() {
         outputFile1.close();
         outputFile2.close();
 
-        // Вывод результатов в консоль
         std::cout << "\n=== РЕЗУЛЬТАТЫ ===" << std::endl;
         for (int i = 0; i < n; i++) {
             std::cout << "Вершина " << i + 1 << ": ";
@@ -115,7 +91,6 @@ int main() {
             std::cout << std::endl;
         }
 
-        // Статистика
         std::cout << "\n=== СТАТИСТИКА ===" << std::endl;
         int reachable = 0;
         int unreachable = 0;
