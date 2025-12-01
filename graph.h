@@ -9,7 +9,7 @@
 class Graph {
 private:
     int numVertices;
-    Vector<Vector<Edge>> adjacencyList;
+    Vector<Vector<Edge>> adjacencyList; //список смежности
 
 public:
     Graph(int vertices) : numVertices(vertices) {

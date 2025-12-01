@@ -5,8 +5,8 @@
 #include <algorithm>
 
 struct Vertex {
-    int id;
-    int distance;
+    int id;  //идент вершины
+    int distance;      //расстояние до вершины
 
     Vertex() : id(-1), distance(INT_MAX) {}
     Vertex(int id, int distance) : id(id), distance(distance) {}

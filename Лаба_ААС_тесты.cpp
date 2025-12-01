@@ -1,12 +1,12 @@
 ﻿#include <iostream>
 #include <vector>
 #include <string>
-#include "F:\Хакеры\Лаба_ААС\Лаба_ААС\graph.h"
-#include "F:\Хакеры\Лаба_ААС\Лаба_ААС\dijkstra.h"
-#include "F:\Хакеры\Лаба_ААС\Лаба_ААС\vector.h"
-#include "F:\Хакеры\Лаба_ААС\Лаба_ААС\edge.h"
-#include "F:\Хакеры\Лаба_ААС\Лаба_ААС\min_heap.h"
-#include "F:\Хакеры\Лаба_ААС\Лаба_ААС\vertex.h"
+#include "graph.h"
+#include "dijkstra.h"
+#include "vector.h"
+#include "edge.h"
+#include "min_heap.h"
+#include "vertex.h"
 
 using namespace std;
 

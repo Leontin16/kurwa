@@ -9,9 +9,9 @@
 template <typename T>
 class Vector {
 private:
-    T* data;
-    int capacity_;
-    int size_;
+    T* data;        //указатель массива элементов
+    int capacity_;  //емкость
+    int size_;      //размер
 
 public:
     Vector() : data(nullptr), capacity_(0), size_(0) {}
