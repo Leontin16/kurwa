@@ -5,6 +5,7 @@
 #include "dijkstra.h"
 
 int main() {
+    system("chcp 65001 > nul");
     setlocale(LC_ALL, "RU");
 
     std::cout << "=== АЛГОРИТМ ДЕЙКСТРЫ ===" << std::endl;
@@ -51,7 +52,7 @@ int main() {
             throw "Неверная начальная вершина";
         }
 
-        std::cout << "\nЗапуск алгоритма Дейкстры из вершины " << source << "..." << std::endl;
+        std::cout << "\nЗапуск алгоритма Дейкстры из вершины " << source + 1<< "..." << std::endl;
 
         Vector<int> distances = Dijkstra::findShortestPaths(graph, source);
 
@@ -59,14 +60,14 @@ int main() {
         std::ofstream outputFile2("output_simple.txt");
 
         outputFile1 << "=== ПОДРОБНЫЕ РЕЗУЛЬТАТЫ ===" << std::endl;
-        outputFile1 << "Кратчайшие расстояния от вершины " << source << ":" << std::endl;
+        outputFile1 << "Кратчайшие расстояния от вершины " << source + 1<< ":" << std::endl;
         for (int i = 0; i < n; i++) {
             outputFile1 << "Вершина " << i + 1 << ": ";
             if (distances[i] == INT_MAX) {
                 outputFile1 << "недостижима (INF)";
             }
             else {
-                outputFile1 << distances[i+1];
+                outputFile1 << distances[i];
             }
             outputFile1 << std::endl;
         }
