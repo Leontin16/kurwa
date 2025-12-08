@@ -3,8 +3,8 @@
 #define EDGE_H
 
 struct Edge {
-    int destination;
-    int weight;
+    int destination;    //вершина
+    int weight;         //вес
 
     Edge() : destination(-1), weight(0) {}
     Edge(int dest, int w) : destination(dest), weight(w) {}
